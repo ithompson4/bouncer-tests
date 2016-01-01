@@ -1,0 +1,298 @@
+                       locale='en-US', params=None):
+        headers = {'user-agent': user_agent,
+                   'accept-language': locale,
+                   'Connection': 'close'}
+
+        try:
+            r = requests.head(url, headers=headers, verify=False, timeout=15,
+                              params=params, allow_redirects=False)
+        except requests.RequestException as e:
+            request_url = self._build_request_url(url, params)
+
+>           raise AssertionError('Failing URL: %s.\nError message: %s' % (reques
+t_url, e))
+E           AssertionError: Failing URL: http://download.allizom.org/?lang=en-US
+&product=firefox-stub&os=win.
+E           Error message: HTTPConnectionPool(host='download.allizom.org', port=
+80): Max retries exceeded with url: /?lang=en-US&product=firefox-stub&os=win (Ca
+used by ConnectTimeoutError(<requests.packages.urllib3.connection.HTTPConnection
+ object at 0x04CD2830>, 'Connection to download.allizom.org timed out. (connect
+timeout=15)'))
+
+tests\base.py:28: AssertionError
+_______ TestRedirects.test_redirect_for_firefox_aliases[product_alias0] _______
+
+self = <tests.test_redirects.TestRedirects instance at 0x04E55198>
+base_url = 'http://download.allizom.org'
+product_alias = {'lang': 'en-US', 'product_name': 'firefox-beta-latest'}
+
+    @pytest.mark.parametrize('product_alias', [
+        {'product_name': 'firefox-beta-latest', 'lang': 'en-US'},
+        {'product_name': 'firefox-latest-euballot', 'lang': 'en-GB'},
+        {'product_name': 'firefox-latest', 'lang': 'en-US'},
+        {'product_name': 'firefox-beta-stub', 'lang': 'en-US'},
+        {'product_name': 'firefox-nightly-latest', 'lang': 'en-US'},
+    ])
+    def test_redirect_for_firefox_aliases(self, base_url, product_alias):
+        param = {
+            'product': product_alias['product_name'],
+            'os': 'win',
+            'lang': product_alias['lang']
+        }
+
+>       response = self._head_request(base_url, params=param)
+
+tests\test_redirects.py:161:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <tests.test_redirects.TestRedirects instance at 0x04E55198>
+url = 'http://download.allizom.org'
+user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:10.0.1) Gecko/2010
+0101 Firefox/10.0.1'
+locale = 'en-US'
+params = {'lang': 'en-US', 'os': 'win', 'product': 'firefox-beta-latest'}
+
+    def _head_request(self, url, user_agent=_user_agent_firefox,
+                      locale='en-US', params=None):
+        headers = {'user-agent': user_agent,
+                   'accept-language': locale,
+                   'Connection': 'close'}
+
+        try:
+            r = requests.head(url, headers=headers, verify=False, timeout=15,
+                              params=params, allow_redirects=False)
+        except requests.RequestException as e:
+            request_url = self._build_request_url(url, params)
+
+>           raise AssertionError('Failing URL: %s.\nError message: %s' % (reques
+t_url, e))
+E           AssertionError: Failing URL: http://download.allizom.org/?lang=en-US
+&product=firefox-beta-latest&os=win.
+E           Error message: HTTPConnectionPool(host='download.allizom.org', port=
+80): Max retries exceeded with url: /?lang=en-US&product=firefox-beta-latest&os=
+win (Caused by ConnectTimeoutError(<requests.packages.urllib3.connection.HTTPCon
+nection object at 0x04DF3050>, 'Connection to download.allizom.org timed out. (c
+onnect timeout=15)'))
+
+tests\base.py:28: AssertionError
+_______ TestRedirects.test_redirect_for_firefox_aliases[product_alias1] _______
+
+self = <tests.test_redirects.TestRedirects instance at 0x04E23260>
+base_url = 'http://download.allizom.org'
+product_alias = {'lang': 'en-GB', 'product_name': 'firefox-latest-euballot'}
+
+    @pytest.mark.parametrize('product_alias', [
+        {'product_name': 'firefox-beta-latest', 'lang': 'en-US'},
+        {'product_name': 'firefox-latest-euballot', 'lang': 'en-GB'},
+        {'product_name': 'firefox-latest', 'lang': 'en-US'},
+        {'product_name': 'firefox-beta-stub', 'lang': 'en-US'},
+        {'product_name': 'firefox-nightly-latest', 'lang': 'en-US'},
+    ])
+    def test_redirect_for_firefox_aliases(self, base_url, product_alias):
+        param = {
+            'product': product_alias['product_name'],
+            'os': 'win',
+            'lang': product_alias['lang']
+        }
+
+>       response = self._head_request(base_url, params=param)
+
+tests\test_redirects.py:161:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <tests.test_redirects.TestRedirects instance at 0x04E23260>
+url = 'http://download.allizom.org'
+user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:10.0.1) Gecko/2010
+0101 Firefox/10.0.1'
+locale = 'en-US'
+params = {'lang': 'en-GB', 'os': 'win', 'product': 'firefox-latest-euballot'}
+
+    def _head_request(self, url, user_agent=_user_agent_firefox,
+                      locale='en-US', params=None):
+        headers = {'user-agent': user_agent,
+                   'accept-language': locale,
+                   'Connection': 'close'}
+
+        try:
+            r = requests.head(url, headers=headers, verify=False, timeout=15,
+                              params=params, allow_redirects=False)
+        except requests.RequestException as e:
+            request_url = self._build_request_url(url, params)
+
+>           raise AssertionError('Failing URL: %s.\nError message: %s' % (reques
+t_url, e))
+E           AssertionError: Failing URL: http://download.allizom.org/?lang=en-GB
+&product=firefox-latest-euballot&os=win.
+E           Error message: HTTPConnectionPool(host='download.allizom.org', port=
+80): Max retries exceeded with url: /?lang=en-GB&product=firefox-latest-euballot
+&os=win (Caused by ConnectTimeoutError(<requests.packages.urllib3.connection.HTT
+PConnection object at 0x04DAE2F0>, 'Connection to download.allizom.org timed out
+. (connect timeout=15)'))
+
+tests\base.py:28: AssertionError
+_______ TestRedirects.test_redirect_for_firefox_aliases[product_alias2] _______
+
+self = <tests.test_redirects.TestRedirects instance at 0x04E18F08>
+base_url = 'http://download.allizom.org'
+product_alias = {'lang': 'en-US', 'product_name': 'firefox-latest'}
+
+    @pytest.mark.parametrize('product_alias', [
+        {'product_name': 'firefox-beta-latest', 'lang': 'en-US'},
+        {'product_name': 'firefox-latest-euballot', 'lang': 'en-GB'},
+        {'product_name': 'firefox-latest', 'lang': 'en-US'},
+        {'product_name': 'firefox-beta-stub', 'lang': 'en-US'},
+        {'product_name': 'firefox-nightly-latest', 'lang': 'en-US'},
+    ])
+    def test_redirect_for_firefox_aliases(self, base_url, product_alias):
+        param = {
+            'product': product_alias['product_name'],
+            'os': 'win',
+            'lang': product_alias['lang']
+        }
+
+>       response = self._head_request(base_url, params=param)
+
+tests\test_redirects.py:161:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <tests.test_redirects.TestRedirects instance at 0x04E18F08>
+url = 'http://download.allizom.org'
+user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:10.0.1) Gecko/2010
+0101 Firefox/10.0.1'
+locale = 'en-US'
+params = {'lang': 'en-US', 'os': 'win', 'product': 'firefox-latest'}
+
+    def _head_request(self, url, user_agent=_user_agent_firefox,
+                      locale='en-US', params=None):
+        headers = {'user-agent': user_agent,
+                   'accept-language': locale,
+                   'Connection': 'close'}
+
+        try:
+            r = requests.head(url, headers=headers, verify=False, timeout=15,
+                              params=params, allow_redirects=False)
+        except requests.RequestException as e:
+            request_url = self._build_request_url(url, params)
+
+>           raise AssertionError('Failing URL: %s.\nError message: %s' % (reques
+t_url, e))
+E           AssertionError: Failing URL: http://download.allizom.org/?lang=en-US
+&product=firefox-latest&os=win.
+E           Error message: HTTPConnectionPool(host='download.allizom.org', port=
+80): Max retries exceeded with url: /?lang=en-US&product=firefox-latest&os=win (
+Caused by ConnectTimeoutError(<requests.packages.urllib3.connection.HTTPConnecti
+on object at 0x04DF3E50>, 'Connection to download.allizom.org timed out. (connec
+t timeout=15)'))
+
+tests\base.py:28: AssertionError
+_______ TestRedirects.test_redirect_for_firefox_aliases[product_alias3] _______
+
+self = <tests.test_redirects.TestRedirects instance at 0x04DE7378>
+base_url = 'http://download.allizom.org'
+product_alias = {'lang': 'en-US', 'product_name': 'firefox-beta-stub'}
+
+    @pytest.mark.parametrize('product_alias', [
+        {'product_name': 'firefox-beta-latest', 'lang': 'en-US'},
+        {'product_name': 'firefox-latest-euballot', 'lang': 'en-GB'},
+        {'product_name': 'firefox-latest', 'lang': 'en-US'},
+        {'product_name': 'firefox-beta-stub', 'lang': 'en-US'},
+        {'product_name': 'firefox-nightly-latest', 'lang': 'en-US'},
+    ])
+    def test_redirect_for_firefox_aliases(self, base_url, product_alias):
+        param = {
+            'product': product_alias['product_name'],
+            'os': 'win',
+            'lang': product_alias['lang']
+        }
+
+>       response = self._head_request(base_url, params=param)
+
+tests\test_redirects.py:161:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <tests.test_redirects.TestRedirects instance at 0x04DE7378>
+url = 'http://download.allizom.org'
+user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:10.0.1) Gecko/2010
+0101 Firefox/10.0.1'
+locale = 'en-US'
+params = {'lang': 'en-US', 'os': 'win', 'product': 'firefox-beta-stub'}
+
+    def _head_request(self, url, user_agent=_user_agent_firefox,
+                      locale='en-US', params=None):
+        headers = {'user-agent': user_agent,
+                   'accept-language': locale,
+                   'Connection': 'close'}
+
+        try:
+            r = requests.head(url, headers=headers, verify=False, timeout=15,
+                              params=params, allow_redirects=False)
+        except requests.RequestException as e:
+            request_url = self._build_request_url(url, params)
+
+>           raise AssertionError('Failing URL: %s.\nError message: %s' % (reques
+t_url, e))
+E           AssertionError: Failing URL: http://download.allizom.org/?lang=en-US
+&product=firefox-beta-stub&os=win.
+E           Error message: HTTPConnectionPool(host='download.allizom.org', port=
+80): Max retries exceeded with url: /?lang=en-US&product=firefox-beta-stub&os=wi
+n (Caused by ConnectTimeoutError(<requests.packages.urllib3.connection.HTTPConne
+ction object at 0x04DBF050>, 'Connection to download.allizom.org timed out. (con
+nect timeout=15)'))
+
+tests\base.py:28: AssertionError
+_______ TestRedirects.test_redirect_for_firefox_aliases[product_alias4] _______
+
+self = <tests.test_redirects.TestRedirects instance at 0x04D90C88>
+base_url = 'http://download.allizom.org'
+product_alias = {'lang': 'en-US', 'product_name': 'firefox-nightly-latest'}
+
+    @pytest.mark.parametrize('product_alias', [
+        {'product_name': 'firefox-beta-latest', 'lang': 'en-US'},
+        {'product_name': 'firefox-latest-euballot', 'lang': 'en-GB'},
+        {'product_name': 'firefox-latest', 'lang': 'en-US'},
+        {'product_name': 'firefox-beta-stub', 'lang': 'en-US'},
+        {'product_name': 'firefox-nightly-latest', 'lang': 'en-US'},
+    ])
+    def test_redirect_for_firefox_aliases(self, base_url, product_alias):
+        param = {
+            'product': product_alias['product_name'],
+            'os': 'win',
+            'lang': product_alias['lang']
+        }
+
+>       response = self._head_request(base_url, params=param)
+
+tests\test_redirects.py:161:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <tests.test_redirects.TestRedirects instance at 0x04D90C88>
+url = 'http://download.allizom.org'
+user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:10.0.1) Gecko/2010
+0101 Firefox/10.0.1'
+locale = 'en-US'
+params = {'lang': 'en-US', 'os': 'win', 'product': 'firefox-nightly-latest'}
+
+    def _head_request(self, url, user_agent=_user_agent_firefox,
+                      locale='en-US', params=None):
+        headers = {'user-agent': user_agent,
+                   'accept-language': locale,
+                   'Connection': 'close'}
+
+        try:
+            r = requests.head(url, headers=headers, verify=False, timeout=15,
+                              params=params, allow_redirects=False)
+        except requests.RequestException as e:
+            request_url = self._build_request_url(url, params)
+
+>           raise AssertionError('Failing URL: %s.\nError message: %s' % (reques
+t_url, e))
+E           AssertionError: Failing URL: http://download.allizom.org/?lang=en-US
+&product=firefox-nightly-latest&os=win.
+E           Error message: HTTPConnectionPool(host='download.allizom.org', port=
+80): Max retries exceeded with url: /?lang=en-US&product=firefox-nightly-latest&
+os=win (Caused by ConnectTimeoutError(<requests.packages.urllib3.connection.HTTP
+Connection object at 0x04DB49D0>, 'Connection to download.allizom.org timed out.
+ (connect timeout=15)'))
+
+tests\base.py:28: AssertionError
+======================== 471 failed in 7076.39 seconds ========================
